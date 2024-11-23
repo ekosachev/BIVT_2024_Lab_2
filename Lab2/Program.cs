@@ -31,29 +31,29 @@ public class Program
         //program.Task_1_8(0.9);
         //program.Task_1_9(0.9);
         //program.Task_1_10(0.9);
-         program.Task_2_1(10);
-         program.Task_2_2(5, 2);
-         program.Task_2_3(10);
-        program.Task_2_4(5, 1, 3);
-        program.Task_2_5(10, 30);
-        program.Task_2_6(5);
-        program.Task_2_7(5);
-        program.Task_2_8(10);
-        program.Task_2_9(10);
-        program.Task_2_10(10);
-        program.Task_2_11(10);
+         // program.Task_2_1(10);
+        // program.Task_2_2(5, 2);
+        //  program.Task_2_3(10);
+        // program.Task_2_4(5, 1, 3);
+        // program.Task_2_5(10, 30);
+        // program.Task_2_6(5);
+        // program.Task_2_7(5);
+        // program.Task_2_8(10);
+        // program.Task_2_9(10);
+        // program.Task_2_10(10);
+        // program.Task_2_11(10);
         //program.Task_2_12(10, 0);
         //program.Task_2_13(10, 5, 0);
-        program.Task_3_1(10);
+        // program.Task_3_1(10);
         //program.Task_3_2(5, 2);
         //program.Task_3_3(10);
-        program.Task_3_4(5, 1, 3);
+        // program.Task_3_4(5, 1, 3);
         //program.Task_3_5(10, 30);
         //program.Task_3_6(5);
-        program.Task_3_7(5);
+        // program.Task_3_7(5);
         //program.Task_3_8(10);
         //program.Task_3_9(10);
-        program.Task_3_10(10);
+        // program.Task_3_10(10);
         //program.Task_3_11(10);
         //program.Task_3_12(10, 0);
         //program.Task_3_13(10, 5, 0);
@@ -66,7 +66,7 @@ public class Program
         const double tolerance = 0.001;
         
         // code here
-        if (x * x + y * y - r * r <= tolerance)
+        if (Math.Abs(x * x + y * y - r * r) <= tolerance)
         {
             answer = true;
             Console.WriteLine($"Point ({x}, {y}) is on circle");
@@ -528,22 +528,19 @@ public class Program
     }
     public int Task_2_10(int n)
     {
-        Console.WriteLine("for test input in console: 5, 3, 3, 4, 5, 2, 4, 5, 5, 4, 5, 4, 2, 5, 3, 5, 4, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 2, 5, 2, 2, 4, 2, 5, 4, 5, 4");
         int answer = 0;
         int mark;
+        bool flag;
         // code here;
         for (int s = 0; s < n; s++)
         {
+            flag = true;
             for (int m = 0; m < 4; m++)
             {
                 mark = int.Parse(Console.ReadLine());
-                if (mark < 4)
+                if (mark <= 3 && flag)
                 {
-                    break;
-                }
-
-                if (m == 3)
-                {
+                    flag = false;
                     answer += 1;
                 }
             }
@@ -556,26 +553,23 @@ public class Program
     }
     public (int, double) Task_2_11(int n)
     {
-        Console.WriteLine("for test input in console: 5, 3, 3, 4, 5, 2, 4, 5, 5, 4, 5, 4, 2, 5, 3, 5, 4, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 2, 5, 2, 2, 4, 2, 5, 4, 5, 4");
         int answer = 0;
         double avg = 0.0;
         int mark;
+        bool flag;
 
         // code here;
         for (int s = 0; s < n; s++)
         {
+            flag = true;
             for (int m = 0; m < 4; m++)
             {
                 mark = int.Parse(Console.ReadLine());
                 avg += mark;
-                if (mark < 4)
+                if (mark < 3 && flag)
                 {
-                    break;
-                }
-
-                if (m == 3)
-                {
-                    answer += 1;
+                    flag = false;
+                    answer++;
                 }
             }
         }
@@ -588,7 +582,8 @@ public class Program
     }
     public double Task_2_12(double r, int type)
     {
-        double answer = 0;
+        double answer;
+        if (r <= 0) return 0.0;
 
         // code here;
         switch (type)
@@ -608,15 +603,18 @@ public class Program
                 answer = Math.Sqrt(3) / 4 * r * r;
                 break;
             }
+            default:
+                return 0.0;
         }
         // end
 
-        return Math.Round(answer, 4);
+        return Math.Round(answer, 2);
     }
     public double Task_2_13(double A, double B, int type)
     {
         double answer = 0;
-
+        if (A == 0.0 || B == 0.0) return 0.0;
+        
         // code here;
         switch (type)
         {
@@ -632,36 +630,39 @@ public class Program
             }
             case 2:
             {
+                if (A >= 2.0 * B) return 0;
                 double p = A + B + B;
-                p /= 2;
+                p /= 2.0;
                 answer = Math.Sqrt(p * (p - A) * (p - B) * (p - B));
                 break;
             }
+            default:
+                return 0.0;
         }
         // end
 
-        return Math.Round(answer, 4);
+        return Math.Round(answer, 2);
     }
     #endregion
 
     #region Level 3
     public double Task_3_1(int n)
     {
+        Console.WriteLine("Input 'exit' to stop the program");
         Console.WriteLine("for test input in console: 168, 147, 174, 154, 180, 149, 166, 160, 175, 161");
         double answer = 0;
 
         // code here
         int amountOfStudents = n;
-        string? input;
         double cumulativeSum = 0;
         double heightOfStudent;
 
-        while (true)
+        string input = Console.ReadLine();
+        while (input != "exit")
         {
-            input = Console.ReadLine();
-            if (input == null) break;
             heightOfStudent = double.Parse(input);
             cumulativeSum += heightOfStudent;
+            input = Console.ReadLine();
         }
 
         answer = cumulativeSum / amountOfStudents;
@@ -701,25 +702,25 @@ public class Program
     }
     public int Task_3_4(int n, double r1, double r2)
     {
+        Console.WriteLine("Input 'exit' to stop the program");
         Console.WriteLine("for test input in console: 1.2 0.7, 2 2, 4.5 0.1, -1 1.5, -0.5 -0.5");
         int answer = 0;
 
         // code here
         double rPoint;
-        string? input;
-        while (true)
+        string input = Console.ReadLine();
+        while (input != "exit")
         {
-            input = Console.ReadLine();
-            if (input == null) break;
             string[] coords = input.Split();
             double x = double.Parse(coords[0]);
             double y = double.Parse(coords[1]);
 
-            rPoint = Math.Sqrt(custom_pow(x, 2) + custom_pow(y, 2));
+            rPoint = Math.Sqrt(x * x + y * y);
             if (r1 <= rPoint && rPoint <= r2)
             {
                 answer++;
             }
+            input = Console.ReadLine();
         }
         // end
 
@@ -756,17 +757,18 @@ public class Program
     }
     public (int, int) Task_3_7(int n)
     {
+        Console.WriteLine("Input 'exit' to stop the program");
         Console.WriteLine("for test input in console: -1.2 0.7, 2 -2, 0.5 0.9, 1 1.5, -0.5 -1.5");
+        
         int answer1 = 0;
         int answer3 = 0;
 
-        string? input;
+        string input = Console.ReadLine();
         string[] xy;
         double x, y;
         // code here
-        while (true)
+        while (input != "exit")
         {
-            input = Console.ReadLine();
             if (input == null) break;
             xy = input.Split();
             x = double.Parse(xy[0]);
@@ -800,6 +802,7 @@ public class Program
                     break;
                 }
             }
+            input = Console.ReadLine();
         }
 
         // end
@@ -838,31 +841,30 @@ public class Program
     }
     public int Task_3_10(int n)
     {
+        Console.WriteLine("Input 'exit' to stop the program");
         Console.WriteLine("for test input in console: 5, 3, 3, 4, 5, 2, 4, 5, 5, 4, 5, 4, 2, 5, 3, 5, 4, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 2, 5, 2, 2, 4, 2, 5, 4, 5, 4");
         int answer = 0;
 
-        string? input = "";
+        string input = Console.ReadLine();
         int mark;
+        bool flag;
         // code here;
         while (true)
         {
+            flag = true;
             for (int m = 0; m < 4; m++)
             {
                 input = Console.ReadLine();
-                if (input == null) break;
+                if (input == "exit") break;
                 mark = int.Parse(input);
-                if (mark < 4)
+                if (mark <= 3 && flag)
                 {
-                    break;
-                }
-
-                if (m == 3)
-                {
+                    flag = false;
                     answer += 1;
                 }
             }
 
-            if (input == null) break;
+            if (input == "exit") break;
         }
         // end
         Console.WriteLine(answer);
@@ -900,7 +902,8 @@ public class Program
     public double Task_3_13(double A, double B, int type)
     {
         double answer = 0;
-
+        if (A == 0.0 || B == 0.0) return 0.0;
+        
         // code here;
         switch (type)
         {
@@ -916,16 +919,18 @@ public class Program
             }
             case 2:
             {
+                if (A <= 2.0 * B) return 0;
                 double p = A + B + B;
-                p /= 2;
+                p /= 2.0;
                 answer = Math.Sqrt(p * (p - A) * (p - B) * (p - B));
                 break;
             }
+            default:
+                return 0.0;
         }
         // end
-        // answer should be equal to the task_2_13 answer
 
-        return answer;
+        return Math.Round(answer, 4);
     }
     #endregion
 }
