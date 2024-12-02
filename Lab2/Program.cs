@@ -562,7 +562,7 @@ public class Program
 
     public int Task_2_10(int n)
     {
-        int answer = 0;
+        int answer = n;
         int mark;
         bool flag;
         // code here;
@@ -572,10 +572,10 @@ public class Program
             for (int m = 0; m < 4; m++)
             {
                 mark = int.Parse(Console.ReadLine());
-                if (mark > 3 && flag)
+                if (mark < 3 && flag)
                 {
                     flag = false;
-                    answer += 1;
+                    answer--;
                 }
             }
         }
@@ -996,4 +996,3 @@ public class Program
     }
     #endregion
 }
-
