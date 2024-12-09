@@ -54,7 +54,7 @@ public class Program
         // program.Task_3_7(5);
         //program.Task_3_8(10);
         //program.Task_3_9(10);
-        // program.Task_3_10(10);
+        program.Task_3_10(10);
         //program.Task_3_11(10);
         //program.Task_3_12(10, 0);
         //program.Task_3_13(10, 5, 0);
@@ -572,7 +572,7 @@ public class Program
             for (int m = 0; m < 4; m++)
             {
                 mark = int.Parse(Console.ReadLine());
-                if (mark < 3 && flag)
+                if (mark <= 3 && flag)
                 {
                     flag = false;
                     answer--;
@@ -899,8 +899,9 @@ public class Program
             "for test input in console: 5, 3, 3, 4, 5, 2, 4, 5, 5, 4, 5, 4, 2, 5, 3, 5, 4, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 2, 5, 2, 2, 4, 2, 5, 4, 5, 4"
         );
         int answer = 0;
+        int amountOfStudents = 0;
 
-        string input = Console.ReadLine();
+        string input = "";
         int mark;
         bool flag;
         // code here;
@@ -913,23 +914,24 @@ public class Program
                 if (input == "exit")
                     break;
                 mark = int.Parse(input);
-                if (mark > 3 && flag)
+                if (mark <= 3 && flag)
                 {
                     flag = false;
-                    answer += 1;
+                    answer++;
                 }
             }
 
             if (input == "exit")
                 break;
+            amountOfStudents++;
         }
         // end
-        Console.WriteLine(answer);
+        Console.WriteLine(amountOfStudents - answer);
 
         // for test input in console: 5, 3, 3, 4, 5, 2, 4, 5, 5, 4, 5, 4, 2, 5, 3, 5, 4, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 2, 5, 2, 2, 4, 2, 5, 4, 5, 4
         // answer should be equal to the task_2_10 answer
 
-        return answer;
+        return amountOfStudents - answer;
     }
 
     public (int, double) Task_3_11(int n)
