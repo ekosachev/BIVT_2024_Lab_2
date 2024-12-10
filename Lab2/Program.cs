@@ -1,4 +1,6 @@
+
 ﻿using System;
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
@@ -32,6 +34,7 @@ public class Program
         //program.Task_1_8(0.9);
         //program.Task_1_9(0.9);
         //program.Task_1_10(0.9);
+
         // program.Task_2_1(10);
         // program.Task_2_2(5, 2);
         //  program.Task_2_3(10);
@@ -56,6 +59,7 @@ public class Program
         //program.Task_3_9(10);
         program.Task_3_10(10);
         //program.Task_3_11(10);
+
         //program.Task_3_12(10, 0);
         //program.Task_3_13(10, 5, 0);
     }
@@ -317,7 +321,9 @@ public class Program
         return answer;
     }
 
+
     public int Task_2_2(int n, double r)
+
     {
         Console.WriteLine("for test input in console: 1.2 0.7, 2 2, 4.5 0.1, -1 1.5, -2.5 -0.5");
         int answer = 0;
@@ -429,6 +435,7 @@ public class Program
             y;
         string[] xy;
         // code here
+
         for (int i = 0; i < n; i++)
         {
             xy = Console.ReadLine().Split();
@@ -449,6 +456,7 @@ public class Program
         // end
         Console.WriteLine(answer);
         // for test input in console: -1.2 0.7, 2 2, 0.5 0.9, -1 1.5, 0.5 1.5
+
 
         return answer;
     }
@@ -516,6 +524,7 @@ public class Program
             y;
         double r;
         // code here
+
         for (int i = 0; i < n; i++)
         {
             xy = Console.ReadLine().Split();
@@ -532,6 +541,7 @@ public class Program
         // end
         Console.WriteLine($"n: {answer}, r: {answerLength:f.3}");
         // for test input in console: -1.2 0.7, 2 -2, 0.5 0.9, 1 1.5, -0.5 -1.5
+
 
         return (answer, answerLength);
     }
@@ -686,14 +696,15 @@ public class Program
     #endregion
 
     #region Level 3
-    public double Task_3_1(int n)
+    public double Task_3_1()
     {
         Console.WriteLine("Input 'exit' to stop the program");
         Console.WriteLine(
             "for test input in console: 168, 147, 174, 154, 180, 149, 166, 160, 175, 161"
         );
         double answer = 0;
-
+        int n = 0;
+        
         // code here
         int amountOfStudents = n;
         double cumulativeSum = 0;
@@ -717,9 +728,11 @@ public class Program
         return answer;
     }
 
+
     public int Task_3_2(int n, double r)
+
     {
-        int answer = 0;
+        int answer = 0, n = 0;
 
         // code here
 
@@ -731,9 +744,12 @@ public class Program
         return answer;
     }
 
+
     public double Task_3_3(int n)
+
     {
         double answer = 0;
+        int n = 0;
 
         // code here
 
@@ -745,11 +761,13 @@ public class Program
         return answer;
     }
 
+
     public int Task_3_4(int n, double r1, double r2)
     {
         Console.WriteLine("Input 'exit' to stop the program");
         Console.WriteLine("for test input in console: 1.2 0.7, 2 2, 4.5 0.1, -1 1.5, -0.5 -0.5");
         int answer = 0;
+
 
         // code here
         double rPoint;
@@ -775,9 +793,11 @@ public class Program
         return answer;
     }
 
+
     public int Task_3_5(int n, double norm)
+
     {
-        int answer = 0;
+        int answer = 0, n = 0;
 
         // code here
 
@@ -789,19 +809,22 @@ public class Program
         return answer;
     }
 
+
     public int Task_3_6(int n)
+
     {
-        int answer = 0;
+        int answer = 0, n = 0;
 
         // code here
 
         // end
 
-        // for test input in console: -1.2 0.7, 2 2, 0.5 0.9, -1 1.5, 0.5 1.5
+        // for test input in console: 1.2 0.7, 2 0.2, 0.5 0.9, -1 1.5, 0.5 0.1
         // answer should be equal to the task_2_6 answer
 
         return answer;
     }
+
 
     public (int, int) Task_3_7(int n)
     {
@@ -810,6 +833,7 @@ public class Program
 
         int answer1 = 0;
         int answer3 = 0;
+
 
         string input = Console.ReadLine();
         string[] xy;
@@ -863,24 +887,29 @@ public class Program
         return (answer1, answer3);
     }
 
+
     public (int, double) Task_3_8(int n)
+
     {
-        int answer = 0;
+        int answer = 0, n = 0;
         double answerLength = double.MaxValue;
 
         // code here
 
         // end
 
-        // for test input in console: -1.2 0.7, 2 -2, 0.5 0.9, 1 1.5, -0.5 -1.5
+        // for test input in console: -1.2 0.7, 2 -2, 0.5 0.9, 1 1.5, -0.5 -0.5
         // answer should be equal to the task_2_8 answer
 
         return (answer, answerLength);
     }
 
+
     public double Task_3_9(int n)
+
     {
         double answer = double.MaxValue;
+        int n = 0;
 
         // code here
 
@@ -892,6 +921,7 @@ public class Program
         return answer;
     }
 
+
     public int Task_3_10(int n)
     {
         Console.WriteLine("Input 'exit' to stop the program");
@@ -900,6 +930,7 @@ public class Program
         );
         int answer = 0;
         int amountOfStudents = 0;
+
 
         string input = "";
         int mark;
@@ -934,9 +965,11 @@ public class Program
         return amountOfStudents - answer;
     }
 
+
     public (int, double) Task_3_11(int n)
+
     {
-        int answer = 0;
+        int answer = 0, n = 0;
         double avg = 0.0;
 
         // code here;
